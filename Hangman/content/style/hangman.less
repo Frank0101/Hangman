@@ -1,0 +1,238 @@
+﻿.hangman-app {
+    font-family: Arial;
+
+    .hangman {
+        float: left;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+        width: 10rem;
+        height: 14rem;
+        border: solid 0.2rem gray;
+        border-radius: 1.5rem;
+
+        &::before, &::after {
+            display: block;
+            position: absolute;
+            box-sizing: border-box;
+        }
+
+        &::before {
+            content: "";
+            left: 4.5rem;
+            width: 0.4rem;
+            height: 3.5rem;
+            background-color: saddlebrown;
+        }
+
+        &::after {
+            content: "";
+            top: 3.5rem;
+            left: 4.5rem;
+            width: 1.2rem;
+            height: 0.4rem;
+            background-color: saddlebrown;
+        }
+
+        &.wins {
+            .head {
+                &::before {
+                    content: ":-)";
+                }
+            }
+        }
+
+        &.lose {
+            .head {
+                background-color: lightblue;
+                border: solid 0.2rem cornflowerblue;
+
+                &::before {
+                    content: ":-(";
+                }
+
+                &::after {
+                    background-color: lightblue;
+                    border: solid 0.2rem cornflowerblue;
+                }
+            }
+
+            .l-arm, .r-arm {
+                background-color: lightblue;
+                border: solid 0.2rem cornflowerblue;
+            }
+        }
+
+        div {
+            display: block;
+            position: absolute;
+            box-sizing: border-box;
+
+            &::before, &::after {
+                display: block;
+                position: absolute;
+                box-sizing: border-box;
+            }
+
+            &.head {
+                top: 0.4rem;
+                left: 3.6rem;
+                width: 3rem;
+                height: 3rem;
+                background-color: lightpink;
+                border: solid 0.2rem hotpink;
+                border-radius: 1.5rem;
+
+                &::before {
+                    content: ":-|";
+                    font-size: 1.5rem;
+                    transform: rotate(90deg);
+                    top: 0.5rem;
+                    left: 0.8rem;
+                }
+
+                &::after {
+                    content: "";
+                    top: 2.6rem;
+                    left: 0.9rem;
+                    width: 0.8rem;
+                    height: 1rem;
+                    background-color: lightpink;
+                    border: solid 0.2rem hotpink;
+                }
+            }
+
+            &.chest {
+                top: 3.3rem;
+                left: -0.2rem;
+                width: 3rem;
+                height: 4rem;
+                background-color: darkseagreen;
+                border: solid 0.2rem darkolivegreen;
+
+                &::before, &::after {
+                    content: "";
+                    top: 0.2rem;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    background-color: darkseagreen;
+                    border: solid 0.2rem darkolivegreen;
+                    transform: rotate(45deg);
+                    z-index: -1;
+                }
+
+                &::before {
+                    left: -0.8rem;
+                }
+
+                &::after {
+                    left: 2.2rem;
+                }
+            }
+
+            &.l-arm, &.r-arm {
+                width: 3.5rem;
+                height: 1.2rem;
+                background-color: lightpink;
+                border: solid 0.2rem hotpink;
+                border-radius: 0.6rem;
+                transform-origin: 0 50%;
+                z-index: -2;
+            }
+
+            &.l-arm {
+                transform: rotate(135deg);
+            }
+
+            &.r-arm {
+                left: 2.6rem;
+                transform: rotate(45deg);
+            }
+
+            &.l-leg, &.r-leg {
+                width: 1.5rem;
+                height: 5rem;
+                background-color: cornflowerblue;
+                border: solid 0.2rem steelblue;
+                top: 3.8rem;
+
+                &::after {
+                    content: "";
+                    top: 4.8rem;
+                    left: -0.2rem;
+                    width: 1.5rem;
+                    height: 0.8rem;
+                    background-color: rosybrown;
+                    border: solid 0.2rem saddlebrown;
+                    border-bottom-left-radius: 0.4rem;
+                    border-bottom-right-radius: 0.4rem;
+                }
+            }
+
+            &.l-leg {
+                left: -0.2rem;
+            }
+
+            &.r-leg {
+                left: 1.3rem;
+            }
+        }
+    }
+
+    .phrase {
+        padding-top: 0.8rem;
+
+        .words {
+            .word {
+                margin-right: 2rem;
+
+                .character {
+                    position: relative;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border: solid 1px gray;
+                    border-radius: 0.4rem;
+
+                    .character-symbol {
+                        position: absolute;
+                        margin-top: 0.4rem;
+                        width: 100%;
+                        font-size: 1.5rem;
+                        text-transform: uppercase;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .keyboard {
+        width: 52rem;
+        padding-top: 0.8rem;
+
+        .keys {
+            .key {
+                .key-button {
+                    width: 3rem;
+                    height: 2.5rem;
+                    font-size: 1.5rem;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .end-game {
+        clear: both;
+        margin-top: 1rem;
+    }
+
+    .words, .characters, .keys {
+        padding: 0;
+        list-style: none;
+
+        .word, .character, .key {
+            display: inline-block;
+        }
+    }
+}
